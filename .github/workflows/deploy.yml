@@ -1,0 +1,22 @@
+name: Deploy Site
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v5
+
+            - name: Connect to Tailscale
+              uses: tailscale/github-action@v4
+              with:
+                authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+                tags:             tag:zerodev-ci
+                version:          latest
+            
+            - name: Ping target
+              run: tailscale ping ${{ secrets.TARGET_TS_IP }}
