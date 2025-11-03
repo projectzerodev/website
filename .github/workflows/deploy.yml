@@ -21,3 +21,12 @@ jobs:
             
             - name: Ping target
               run: tailscale ping ${{ secrets.TARGET_TS_IP }}
+            
+            - name: SSH into server
+              uses: appleboy/ssh-action@v1
+              with:
+                host: ${{ secrets.TARGET_TS_IP }}
+                username: ${{ secrets.USER_NAME }}
+                password: ${{ secrets.USER_PASSWORD }}
+                port: 22
+                script: whoami
