@@ -14,9 +14,10 @@ jobs:
             - name: Connect to Tailscale
               uses: tailscale/github-action@v4
               with:
-                authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-                tags:             tag:zerodev-ci
-                version:          latest
+                oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+                oauth-secret:    ${{ secrets.TS_OAUTH_SECRET }}
+                tags:            tag:zerodev-ci
+                version:         latest
             
             - name: Ping target
               run: tailscale ping ${{ secrets.TARGET_TS_IP }}
