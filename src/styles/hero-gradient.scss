@@ -51,6 +51,7 @@
   height: 100vh;
   position: absolute;
   overflow: hidden;
+  z-index: -1;
 
   background: linear-gradient(
     40deg,
