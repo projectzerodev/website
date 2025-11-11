@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import "../styles/global.scss";
 ---
 
 <!doctype html>
@@ -10,9 +10,7 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Zerodev</title>
   </head>
-  <body class="flex min-h-screen max-w-screen flex-col overflow-x-clip">
-    <main class="relative flex flex-1 flex-col bg-gray-900 text-gray-50">
-      <slot />
-    </main>
+  <body>
+    <slot />
   </body>
 </html>
