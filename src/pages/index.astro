@@ -1,7 +1,17 @@
 ---
+import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
+const projects = [
+  {
+    name: "Zinix",
+    description:
+      "Minimal open-source operating system made to prevent e-waste.",
+    href: "https://github.com/projectzerodev/zinix",
+  },
+];
 ---
 
 <Layout>
   <h1 class="text-3xl">Zinix Foundation</h1>
+  {projects.map((project) => <ProjectCard {...project} />)}
 </Layout>
