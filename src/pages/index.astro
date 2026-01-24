@@ -12,6 +12,44 @@ const projects = [
 ---
 
 <Layout>
-  <h1 class="text-3xl">Zinix Foundation</h1>
-  {projects.map((project) => <ProjectCard {...project} />)}
+  <div class="content">
+    <main>
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2 class="section-header">Projects</h2>
+        <div class="section-content">
+          {projects.map((project) => <ProjectCard {...project} />)}
+        </div>
+      </section>
+    </main>
+  </div>
 </Layout>
+
+<style>
+  .content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #projects {
+    padding: 1.5rem;
+    max-width: 56rem;
+    margin: auto;
+  }
+
+  .section-header {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: oklch(0.45 0 0);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.025em;
+  }
+
+  .section-content {
+    display: grid;
+    gap: 1rem;
+  }
+</style>
